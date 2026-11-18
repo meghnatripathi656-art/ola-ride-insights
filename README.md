@@ -13,6 +13,9 @@ Power BI dashboard and a Streamlit app.
 | `ola_sql_queries.sql` | The 10 SQL queries |
 | `streamlit_app.py` | Streamlit app: filters, charts, SQL results, Power BI embed |
 | `POWER_BI_GUIDE.md` | DAX measures and visual-by-visual build guide |
+| `OLA project.pbix` | Power BI dashboard (5 pages: Overall, Vehicle Type, Revenue, Cancellation, Ratings) |
+| `dashboard_*.png` | Screenshots of each dashboard page |
+| `screenshot/` | MySQL Workbench screenshots of the 10 SQL queries, numbered (1) to (10) in query order |
 | `docs/Ola-Slides-filled.pptx` | Dashboard background slides with summary numbers |
 
 ## How to run
@@ -27,6 +30,15 @@ Power BI dashboard and a Streamlit app.
 - Ratings, TAT and distance are blank/zero for cancelled rides. Ratings are kept as NULL (filling with 0 would lower averages).
 - Text columns (cancellation reasons, payment method, incomplete rides) filled with `Not Applicable`; this value is excluded in reason and payment charts.
 - Duplicate `Booking_ID`s dropped (none found); `Vehicle Images` column dropped.
+
+## Power BI dashboard
+Open `OLA project.pbix` in Power BI Desktop. Pages and screenshots:
+
+![Overall](dashboard_overall.png)
+![Vehicle Type](dashboard_vehicle_type.png)
+![Revenue](dashboard_revenue.png)
+![Cancellation](dashboard_cancellation.png)
+![Ratings](dashboard_ratings.png)
 
 ## SQL results (validated)
 | # | Question | Result |
@@ -50,10 +62,10 @@ Note on Q2: cancelled rides have distance 0, so the query filters `Booking_Statu
 - **Auto rides are short:** 10 km on average versus about 25 km for every other vehicle type.
 - **Cash and UPI make up about 95% of successful revenue** (Cash 19.3M, UPI 14.2M; cards 1.7M combined).
 - **Ratings are flat (about 4.0)** across vehicle types, so service quality does not differentiate vehicle categories.
-- Demand is steady at roughly 3,300 bookings/day, with busiest hours at 8, 12 and 15.
+- Demand is steady at roughly 3,300 bookings/day. Hourly volume is almost flat (4,176 to 4,408 bookings per hour of day, within about 3% of the average), so there is no sharp peak hour.
 
 ## Recommendations
 1. Reduce driver cancellations with vehicle-health reminders and penalties/incentives for accepted-then-cancelled rides.
 2. Fix pickup experience (ETA tracking, proximity-based allocation) to cut customer cancellations.
-3. Add more drivers around the 8:00, 12:00 and 15:00 demand peaks to lower "Driver Not Found".
+3. Since demand is flat across the day, "Driver Not Found" (9.8%) is a supply and allocation problem rather than a peak-hour problem: keep driver availability consistent through the day and improve matching.
 4. Push UPI and cards (digital payments) to reduce cash handling.
