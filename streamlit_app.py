@@ -101,7 +101,26 @@ with tab_sql:
 
 # ---------- Power BI ----------
 with tab_pbi:
-    st.write("Publish your report in Power BI (Publish to web / embed link) and paste the embed URL below.")
-    url = st.text_input("Power BI embed URL")
+    st.subheader("Power BI dashboard")
+    url = st.text_input("Power BI embed URL (optional)", help="Paste the 'Publish to web' embed link to show the live report here.")
     if url:
         components.iframe(url, height=700, scrolling=True)
+    else:
+        st.caption("Dashboard pages exported from Power BI Desktop (OLA project.pbix).")
+        from pathlib import Path
+        pages = [
+            ("Overall", "dashboard_overall.png"),
+            ("Vehicle Type", "dashboard_vehicle_type.png"),
+            ("Revenue", "dashboard_revenue.png"),
+            ("Cancellation", "dashboard_cancellation.png"),
+            ("Ratings", "dashboard_ratings.png"),
+        ]
+        shown = False
+        for title, fname in pages:
+            path = Path(__file__).parent / fname
+            if path.exists():
+                st.markdown(f"**{title}**")
+                st.image(str(path), use_container_width=True)
+                shown = True
+        if not shown:
+            st.info("Add the dashboard screenshots (dashboard_*.png) next to streamlit_app.py, or paste an embed URL above.")
