@@ -1,8 +1,11 @@
 # Ola Ride Insights
-https://ola-ride-insights-mbpcezzx9g2eduyweja5wc.streamlit.app/
+
+🚀 **Live App:** [Open Streamlit App](https://ola-ride-insights-mbpcezzx9g2eduywejaSwc.streamlit.app/)
+
 Ride-sharing analytics on Ola's July 2024 bookings: data cleaning (Python), SQL analysis (MySQL), an interactive
 Power BI dashboard and a Streamlit app.
 
+🎥 **Project Walkthrough Video:** [Watch here](https://drive.google.com/file/d/1_ir27jSaX9Y6Bglzirann9yQUwxa4RjL/view?usp=drive_link)
 **Dataset:** 103,024 bookings, 23 columns after cleaning (`ola_clean.csv`). Skills: Python, pandas, SQL, Power BI, Streamlit.
 
 ## Project structure
