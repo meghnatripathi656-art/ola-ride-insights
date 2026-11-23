@@ -1,6 +1,6 @@
 # Ola Ride Insights
 
-🚀 **Live App:** [Open Streamlit App](https://ola-ride-insights-mbpcezzx9g2eduywejaSwc.streamlit.app/)
+🚀 **Live App:** [Open Streamlit App](https://ola-ride-insights-mbpcezzx9g2eduyweja5wc.streamlit.app/)
 
 Ride-sharing analytics on Ola's July 2024 bookings: data cleaning (Python), SQL analysis (MySQL), an interactive
 Power BI dashboard and a Streamlit app.
